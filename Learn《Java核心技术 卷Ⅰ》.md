@@ -101,7 +101,7 @@ final int age = 14;
 
 Java虚拟机就会报错：
 
-![image-20210108102203288](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108102203288.png)
+![image-20210108102203288](image-20210108102203288.png)
 
 这也就是常量设计的意义，因为有些重要的东西是不能改变的（如我国的领土面积），为了防止在程序中不小心改变了它们的值，于是有了这种常量的设计
 
@@ -153,7 +153,7 @@ public class IntToFloatTest {
 
 结果如下：
 
-![image-20210108135033436](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108135033436.png)
+![image-20210108135033436](image-20210108135033436.png)
 
 下面说下强制转换。从这个名字就看得出来，是强制的类型转换。那为啥要强制转换呢？举个例子：
 
@@ -185,7 +185,7 @@ public class DoubelToInt {
 
 结果如下：
 
-![image-20210108140654665](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108140654665.png)
+![image-20210108140654665](image-20210108140654665.png)
 
 原来是把小数点后的部分截掉了~如果你想用四舍五入的话，就需要用到`java.lang.Math.round`了。演示如下：
 
@@ -216,7 +216,7 @@ public class DoubelToInt2 {
 
 结果如下：
 
-![image-20210108141037067](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108141037067.png)
+![image-20210108141037067](image-20210108141037067.png)
 
 这样就可以四舍五入进行转换了
 
@@ -247,7 +247,7 @@ public class WhatWillHappen {
 
 会这样：
 
-![image-20210108124421080](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108124421080.png)
+![image-20210108124421080](image-20210108124421080.png)
 
 Java虚拟机会抛出异常`ArithmeticException`，有关异常的部分后面再说
 
@@ -265,7 +265,7 @@ public class WhatWillHappen2 {
 
 会这样：
 
-![image-20210108124841481](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108124841481.png)
+![image-20210108124841481](image-20210108124841481.png)
 
 它说结果是正无穷大
 
@@ -318,7 +318,7 @@ public class MathTest {
 
 输出结果如下：
 
-![image-20210108132646051](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108132646051.png)
+![image-20210108132646051](M:\learn-java\image-20210108132646051.png)
 
 如果觉得Math前缀麻烦，可以把第1行改成这样：
 
@@ -403,7 +403,7 @@ public class IDontKonwHowToNameThisClass {
 }
 ```
 
-![image-20210108141531586](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108141531586.png)
+![image-20210108141531586](M:\learn-java\image-20210108141531586.png)
 
 这说明什么？
 
@@ -515,7 +515,7 @@ public class BooleanTest {
 
 结果：
 
-![image-20210108151743679](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108151743679.png)
+![image-20210108151743679](M:\learn-java\image-20210108151743679.png)
 
 ### 三元运算符
 
@@ -588,7 +588,7 @@ public class SubstringTest {
 
 它会输出：
 
-![image-20210108154036923](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210108154036923.png)
+![image-20210108154036923](M:\learn-java\image-20210108154036923.png)
 
 注意参数是`substring(0,5)`，两个参数分别是开始和结束的位置，Java语言从0开始计数，最后的5表示到第5个为止，但并不包括第5个
 
@@ -613,7 +613,7 @@ public class StringTest {
 
 结果如下：
 
-![image-20210109085139932](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109085139932.png)
+![image-20210109085139932](M:\learn-java\image-20210109085139932.png)
 
 还要别的比较高级的拼接方法，如`join()`方法，书上的示例：
 
@@ -623,7 +623,7 @@ String all = String.join(" / ","S","M","L","XL");
 
 打印结果：
 
-![image-20210109085732016](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109085732016.png)
+![image-20210109085732016](M:\learn-java\image-20210109085732016.png)
 
 这个方法的源码如下：
 
@@ -679,7 +679,7 @@ String repeated = "Java".repeat(3);
 
 会输出：
 
-![image-20210109090521006](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109090521006.png)
+![image-20210109090521006](M:\learn-java\image-20210109090521006.png)
 
 ### 检测字符串是否相等
 
@@ -706,7 +706,7 @@ public class EqualsTest {
 
 结果如下：
 
-![image-20210109112003456](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109112003456.png)
+![image-20210109112003456](M:\learn-java\image-20210109112003456.png)
 
 似乎用`==`也没什么问题呢
 
@@ -730,7 +730,7 @@ public class FirstSample {
 
 结果如下：
 
-![image-20210109112320558](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109112320558.png)
+![image-20210109112320558](M:\learn-java\image-20210109112320558.png)
 
 为什么`==`的结果是false？
 
@@ -826,11 +826,11 @@ public class FirstSample {
 
 运行如下：
 
-![image-20210109113547061](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109113547061.png)
+![image-20210109113547061](M:\learn-java\image-20210109113547061.png)
 
 我们发现，在执行`System.out.println(b.length());`时。报错了，虚拟机停止了程序，报了空指针异常`NullPointerException`，我们把12行和18行（因为18行也有`b.length()`操作）删了重试：
 
-![image-20210109113843903](C:\Users\华为\AppData\Roaming\Typora\typora-user-images\image-20210109113843903.png)
+![image-20210109113843903](image-20210109113843903.png)
 
 由此可见：
 
