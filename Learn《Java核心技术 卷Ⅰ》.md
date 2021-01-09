@@ -958,3 +958,5 @@ public class WTF {
 ### 格式化输出
 
 使用`System.out.printf()`方法，具体转换符与C一样，故不赘述
+
+![image-20210109204549167](C:/Users/华为/AppData/Roaming/Typora/typora-user-images/image-20210109204549167.png)
