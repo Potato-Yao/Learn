@@ -941,7 +941,8 @@ builder.append(str);  // str为要加入的内容
 Fuck,代码出了个空指针异常死活解决不了，先把程序放到这，有时间了再改吧
 
 ```java
-public class WTF {
+public class WTF 
+{
 
     public static void main(String[] args)
     {
@@ -959,5 +960,196 @@ public class WTF {
 
 使用`System.out.printf()`方法，具体转换符与C一样，故不赘述
 
-![image-20210109204549167](image-20210109204549167.png)
+### 文件输入与输出
+
+#### 输入
+
+读取文件需要创建一个Scanner对象，如下：
+
+```java
+Scanner in = new Scanner(Path.of(first), StandardCharsets.UTF_8);  // first是文件名
+```
+
+推荐的方法是加一个`try`语句环绕（后面会讲到），如下：
+
+```java
+try 
+{
+    Scanner in = new Scanner(Path.of(first), StandardCharsets.UTF_8);
+} catch (IOException e)
+{
+    e.printStackTrace();
+}
+```
+
+#### 输出
+
+写入文件需要一个`PrintWriter`对象
+
+```java
+PrintWriter out = new PrintWriter(file, StandrdCharsets.UTF_8);
+```
+
+## 七.控制流程
+
+### 块作用域
+
+按照书上的定义，`块是指由若干条Java语句组成的语句，并用一对大括号括起来`，块确定了变量的作用域。一个块可以嵌套在另一个块中，与下图中的代码示例：
+
+```Java
+public static void main(String[] args) 
+{
+    int n;
+    // Do something...
+    {
+        int k;
+        // Do something...
+    }
+}
+```
+
+但是不可能这样：
+
+```Java
+public static void main(String[] args) 
+{
+    int n;
+    // Do something...
+    {
+        int n;
+        int k;
+        // Do something...
+    }
+}
+```
+
+因为不能在嵌套的块中声明同名的语句
+
+### 条件语句
+
+条件语句的格式为：
+
+```java
+if (条件) 
+    执行语句
+```
+
+如：
+
+```java
+if (a > 0) 
+    System.out.println("a是正数");  // a是整型
+```
+
+但这样只能处理一行，为了方便且直观，推荐使用复合语句（也就是块）：
+
+```java
+if (a > 0) 
+{
+    System.out.println("a是正数");
+}
+```
+
+如果我们想判断大于、小于或等于0，怎么写呢？
+
+这样吗？
+
+```java
+import java.util.Scanner;
+
+
+public class IfTest
+{
+
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.println("输入一个整数");
+        int a = s.nextInt();
+        if (a > 0) 
+        {
+            System.out.println("a大于0");
+        }
+        if (a == 0)
+        {
+            System.out.println("a等于0");
+        }
+        if (a < 0)
+        {
+            System.out.println("a小于0");
+        }
+    }
+}
+```
+
+是不是有点麻烦了？
+
+这里介绍一个新的操作符`else`，它意为其它，这用一段程序就很好理解了：
+
+```java
+import java.util.Scanner;
+
+
+public class IfTest2
+{
+
+    public static void main(String[] args)
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.println("输入一个整数");
+        int a = s.nextInt();
+        if (a > 0)
+        {
+            System.out.println("a大于0");
+        }
+        else if (a == 0)
+        {
+            System.out.println("a等于0");
+        }
+        else
+        {
+            System.out.println("a小于0");
+        }
+    }
+}
+```
+
+这样的写法使代码阅读性更高，也更简洁
+
+我想到一个《C Primer Plus》中提到的例子，这是一个很容易犯的错误：
+
+```java
+public class WTFIsIt
+{
+
+    public static void main(String[] args)
+    {
+        int number;
+
+        if (number > 6)
+            if (number < 12)
+                System.out.println("You`re close!");
+        else
+            System.out.println("Sorry, you lose a turn!");
+    }
+}
+```
+
+这是《C Primer Plus》原书中的一个例子，我把它翻译成了Java语言，如上
+
+请问，何时打印`Sorry, you lose a turn!`？是当number小于或等于6时，还是number大于12时？换言之，else与第一个if还是第二个if匹配？答案是，else与第二个if匹配。也就是说，输入的数字和匹配相应如下：
+
+| 数字 |          响应           |
+| :--: | :---------------------: |
+|  5   |          None           |
+|  10  |      You`re close!      |
+|  15  | Sorry, you lose a turn! |
+
+从上一代码示例至此的部分摘自《C Primer Plus》第六版，人民邮电出版社
+
+所以我们发现，在没有大括号的情况下，else与最近的if匹配
+
+Wait...what?markdown里可以插入emoji？ :sweet_potato: :honeybee: （土豆和黄蜂）
+
+
 
